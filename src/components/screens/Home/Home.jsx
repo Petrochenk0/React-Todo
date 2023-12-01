@@ -3,7 +3,6 @@ import TodoItem from "./item/TodoItem";
 import CreateElement from "./CreateTodo/CreateElement.jsx";
 
 const toDoForJunior = 'to-do For Junior React developer';
-
 const data = [
     {
         _id:'1',
