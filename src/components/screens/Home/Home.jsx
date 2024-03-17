@@ -1,41 +1,39 @@
-import React, { useState } from "react";
-import TodoItem from "./item/TodoItem";
-import CreateElement from "./CreateTodo/CreateElement.jsx";
+import React, { useState } from 'react';
+import TodoItem from './item/TodoItem';
+import CreateElement from './CreateTodo/CreateElement.jsx';
 
 const toDoForJunior = 'to-do For Junior React developer';
 const data = [
-    {
-        _id:'1',
-        title:'Название определенной задачи для выполнения',// пишем просто название для теста базы данных
-        isBool: false//по дефолту стоит false так как задача сначала не выполнена
-        
-    },
-    {
-        _id:'2',
-        title:'Прочитать следующую главу',
-        isBool: false
-    },
-    {
-        _id:'3',
-        title:'Закончить школу',
-        isBool: false
-    },
-    {
-        _id:'4',
-        title:'Поступить в школу',
-        isBool: false
-    },
-    {
-        _id:'5',
-        title:'Переехать в братский дом',
-        isBool: false
-    },
-]
-
+  {
+    _id: '1',
+    title: 'Название определенной задачи для выполнения', // пишем просто название для теста базы данных
+    isBool: false, //по дефолту стоит false так как задача сначала не выполнена
+  },
+  {
+    _id: '2',
+    title: 'Прочитать 200 книг за год',
+    isBool: false,
+  },
+  {
+    _id: '3',
+    title: 'Проснуться в 5 утра',
+    isBool: false,
+  },
+  {
+    _id: '4',
+    title: 'Сходить за хлебом',
+    isBool: false,
+  },
+  {
+    _id: '5',
+    title: 'Дописать проект',
+    isBool: false,
+  },
+];
 
 const Home = () => {
   const [todos, setTodos] = useState(data);
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
 
   const changeTodo = (id) => {
     setTodos((prevTodos) => {
@@ -50,7 +48,7 @@ const Home = () => {
       });
     });
   };
-  
+
   const deleteTodo = (id) => {
     setTodos((prevTodos) => {
       return prevTodos.filter((todo) => todo._id !== id);
@@ -68,7 +66,7 @@ const Home = () => {
         ...prevTodos,
       ];
     });
-    setTitle("");
+    setTitle('');
   };
 
   window.addTodo = addTodo;
@@ -85,7 +83,7 @@ const Home = () => {
           />
         </div>
       ))}
-      <CreateElement addTodo={addTodo} setTodos={setTodos}/>
+      <CreateElement addTodo={addTodo} setTodos={setTodos} />
     </div>
   );
 };
