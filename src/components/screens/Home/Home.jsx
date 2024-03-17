@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TodoItem from './item/TodoItem';
 import CreateElement from './CreateTodo/CreateElement.jsx';
 
-const toDoForJunior = 'to-do For Junior React developer';
+const titleToDo = 'QuestMaster Todo 🌟';
 const data = [
   {
     _id: '1',
@@ -73,7 +73,7 @@ const Home = () => {
 
   return (
     <div className="text-white w-4/5 mx-auto">
-      <h1 className="text-2xl font-bold text-center mb-5">{toDoForJunior}</h1>
+      <h1 className="text-2xl font-bold text-center mb-5">{titleToDo}</h1>
       {todos.map((todo) => (
         <div key={todo._id}>
           <TodoItem
