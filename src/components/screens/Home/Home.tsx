@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
-import TodoItem from './item/TodoItem';
-import CreateElement from './CreateTodo/CreateElement.jsx';
+import TodoItem from './item/TodoItem.tsx';
+import CreateElement from './CreateTodo/CreateElement.tsx';
+
+interface Todo {
+  _id: string;
+  title: string;
+  isBool: boolean;
+}
 
 const titleToDo = 'QuestMaster Todo 🌟';
-const data = [
+const data: Todo[] = [
   {
     _id: '1',
-    title: 'Название определенной задачи для выполнения', // пишем просто название для теста базы данных
-    isBool: false, //по дефолту стоит false так как задача сначала не выполнена
+    title: 'Название определенной задачи для выполнения',
+    isBool: false,
   },
   {
     _id: '2',
@@ -31,11 +37,11 @@ const data = [
   },
 ];
 
-const Home = () => {
-  const [todos, setTodos] = useState(data);
-  const [title, setTitle] = useState('');
+const Home: React.FC = () => {
+  const [todos, setTodos] = useState<Todo[]>(data);
+  const [title, setTitle] = useState<string>('');
 
-  const changeTodo = (id) => {
+  const changeTodo = (id: string) => {
     setTodos((prevTodos) => {
       return prevTodos.map((todo) => {
         if (todo._id === id) {
@@ -49,13 +55,13 @@ const Home = () => {
     });
   };
 
-  const deleteTodo = (id) => {
+  const deleteTodo = (id: string) => {
     setTodos((prevTodos) => {
       return prevTodos.filter((todo) => todo._id !== id);
     });
   };
 
-  const addTodo = (title) => {
+  const addTodo = (title: string) => {
     setTodos((prevTodos) => {
       return [
         {
@@ -69,7 +75,7 @@ const Home = () => {
     setTitle('');
   };
 
-  window.addTodo = addTodo;
+  // window.addTodo = addTodo; // This line is commented out as it seems to be a mistake
 
   return (
     <div className="text-white w-4/5 mx-auto">
@@ -80,6 +86,7 @@ const Home = () => {
             itemDefaultName={todo}
             changeTodo={changeTodo}
             deleteTodo={() => deleteTodo(todo._id)}
+            addTodo={addTodo}
           />
         </div>
       ))}

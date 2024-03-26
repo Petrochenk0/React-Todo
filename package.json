@@ -1,5 +1,5 @@
 {
-  "name": "to-do-for-junior",
+  "name": "proffesional-todo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "typescript": "^4.5.4",
     "tailwindcss": "^3.3.2"
   }
 }
